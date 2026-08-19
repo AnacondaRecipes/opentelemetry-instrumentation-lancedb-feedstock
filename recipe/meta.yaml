@@ -1,13 +1,13 @@
 {% set name = "opentelemetry-instrumentation-lancedb" %}
-{% set version = "0.57.0" %}
+{% set version = "0.62.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
-  sha256: c7ca50aca8133caa250107e4c4115f119d7a6f6da36b83b5ac8b4d21cbabbfed
+  sha256: 928ea8ee63a5ff1f5c9754b1833da1fac00c4a0c93752c57e8cf1f8a4b506c14
 
 build:
   number: 0
@@ -23,8 +23,10 @@ requirements:
     - python
     - opentelemetry-api >=1.38.0,<2.0.0
     - opentelemetry-instrumentation >=0.59b0
-    - opentelemetry-semantic-conventions >=0.59b0
     - opentelemetry-semantic-conventions-ai >=0.5.1,<0.6.0
+    - opentelemetry-semantic-conventions >=0.63b1
+  run_constrained:
+    - lancedb >=0.26.0
 
 test:
   source_files:
